@@ -1,4 +1,4 @@
-package de.laurenzgrote.bwinf35.osterrechner.datum;
+package de.laurenzgrote.bwinf35.sprichwort.datum;
 
 public class GregorianischesDatum extends Datum {
 

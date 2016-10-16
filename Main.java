@@ -1,7 +1,7 @@
-package de.laurenzgrote.bwinf35.osterrechner;
+package de.laurenzgrote.bwinf35.sprichwort;
 
-import de.laurenzgrote.bwinf35.osterrechner.datum.GregorianischesDatum;
-import de.laurenzgrote.bwinf35.osterrechner.datum.JulianischesDatum;
+import de.laurenzgrote.bwinf35.sprichwort.datum.GregorianischesDatum;
+import de.laurenzgrote.bwinf35.sprichwort.datum.JulianischesDatum;
 
 public class Main {
     public static void main(String[] args) {
