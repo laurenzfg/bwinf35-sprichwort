@@ -5,9 +5,9 @@ import de.laurenzgrote.bwinf35.osterrechner.datum.JulianischesDatum;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Kath. Ostern und Orth. Weihnachten finden am folgendem Datum gleichzeitig statt: " +
+        System.out.println("Kath./Ev. Ostern und Orth. Weihnachten finden am folgendem Datum gleichzeitig statt: " +
                 wannKatholischeOsternOrthodoxeWeihnacht());
-        System.out.println("Kath. Weihnachten und Orth. Ostern finden am folgendem Datum gleichzeitig statt " +
+        System.out.println("Kath./Ev. Weihnachten und Orth. Ostern finden am folgendem Datum gleichzeitig statt: " +
                 wannKatholischeWeihnachtOrthodoxeOstern());
     }
 
