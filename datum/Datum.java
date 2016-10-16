@@ -1,10 +1,6 @@
 package de.laurenzgrote.bwinf35.osterrechner.datum;
 
 public abstract class Datum {
-    // Später zum Umrechnen wichtig
-    final int[] monatslaengen = {0, 31, 28, 31, 30 , 31, 30, 31, 31, 30, 31, 30, 31};
-    final int[] monatslaengenSchaltjahr = {0, 31, 29, 31, 30 , 31, 30, 31, 31, 30, 31, 30, 31};
-
     // Datum
     private int tag, monat, jahr;
 

@@ -2,6 +2,10 @@ package de.laurenzgrote.bwinf35.osterrechner.datum;
 
 public class GregorianischesDatum extends Datum {
 
+    // Später zum Umrechnen wichtig
+    private final int[] monatslaengen = {0, 31, 28, 31, 30 , 31, 30, 31, 31, 30, 31, 30, 31};
+    private final int[] monatslaengenSchaltjahr = {0, 31, 29, 31, 30 , 31, 30, 31, 31, 30, 31, 30, 31};
+
     public GregorianischesDatum(int tag, int monat, int jahr) {
         super(tag, monat, jahr);
     }
