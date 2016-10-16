@@ -34,29 +34,37 @@ public class GregorianischesDatum extends Datum {
         }
     }
     public GregorianischesDatum(JulianischesDatum julianischesDatum) {
+        // Daten übernehmen
         super(julianischesDatum.getTag(), julianischesDatum.getMonat(), julianischesDatum.getJahr());
 
+        // Abstand zwischen Kalendersystemen
         int abstandInTagen = (getJahr() / 100) - (getJahr() / 400) - 2;
 
+        // Auf den Tag dazuaddieren
         setTag(getTag() + abstandInTagen);
 
-        if (isSchaltjahr()) {
-            if (getTag() > monatslaengenSchaltjahr[getMonat()]) {
-                korrigiereUeberhang(monatslaengenSchaltjahr);
-            }
-        } else {
-            if (getTag() > monatslaengen[getMonat()]) {
-                korrigiereUeberhang(monatslaengen);
-            }
-        }
+        // Jetzt evt. Überschreitung der Monatslänge korrigieren
+        korrigiereUeberhang();
     }
-    private void korrigiereUeberhang (int[] gueltigeMonatslaengen) {
+    private void korrigiereUeberhang () {
+        int[] gueltigeMonatslaengen;
+
+        // Monatslängen für diese Jahr festlegen
+        if (isSchaltjahr()) {
+            gueltigeMonatslaengen = monatslaengenSchaltjahr;
+        } else {
+            gueltigeMonatslaengen = monatslaengen;
+        }
+
+        // Wieviele Tage darf dieser Monat haben?
         final int erlaubteTage = gueltigeMonatslaengen[getMonat()];
 
+        // Um wieviele Tage über-/unterschreitet das Datum dies?
         int ueberhang = getTag() - erlaubteTage;
-        setTag(erlaubteTage);
 
+        // SOLANGE es zu viele sind
         while (ueberhang > 0) {
+            // Schiebe den Monat (bei Dez. Jahr) um eins voran
             if (getMonat() == 12) {
                 setJahr(getJahr() + 1);
                 setMonat(1);
@@ -70,10 +78,14 @@ public class GregorianischesDatum extends Datum {
             } else {
                 setMonat(getMonat() + 1);
             }
+            // Passen die übriggebliebenen Tage in den aktuellen Monat
             if (ueberhang < gueltigeMonatslaengen[getMonat()]) {
+                // Wen ja ist der verbleibende Überhang der Monatstag
                 setTag(ueberhang);
+                // Und danach ist kein Überhang merh da
                 ueberhang = 0;
             } else {
+                // Sonst wird der Überhang um die Monatslänge verringert
                 ueberhang -= gueltigeMonatslaengen[getMonat()];
             }
         }
