@@ -11,7 +11,7 @@ public class Main {
                 wannKatholischeWeihnachtOrthodoxeOstern());
     }
 
-    public static String wannKatholischeOsternOrthodoxeWeihnacht() {
+    private static String wannKatholischeOsternOrthodoxeWeihnacht() {
         int i = 2015;
         GregorianischesDatum katholischeOstern, orthodoxeWeihnacht;
         do {
@@ -25,7 +25,7 @@ public class Main {
         // Welche Variable wir ausgeben ist egal, sind ja inhaltsgleich....
         return katholischeOstern.toString();
     }
-    public static String wannKatholischeWeihnachtOrthodoxeOstern() {
+    private static String wannKatholischeWeihnachtOrthodoxeOstern() {
         int i = 2015;
         GregorianischesDatum katholischeWeihnacht, orthodoxeOstern;
         do {
