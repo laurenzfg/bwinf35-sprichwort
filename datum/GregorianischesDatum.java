@@ -56,11 +56,8 @@ public class GregorianischesDatum extends Datum {
             gueltigeMonatslaengen = monatslaengen;
         }
 
-        // Wieviele Tage darf dieser Monat haben?
-        final int erlaubteTage = gueltigeMonatslaengen[getMonat()];
-
-        // Um wieviele Tage über-/unterschreitet das Datum dies?
-        int ueberhang = getTag() - erlaubteTage;
+        // Um wieviele Tage über-/unterschreitet das Datum die Monatslänge?
+        int ueberhang = getTag() - gueltigeMonatslaengen[getMonat()];
 
         // SOLANGE es zu viele sind
         while (ueberhang > 0) {
@@ -79,7 +76,7 @@ public class GregorianischesDatum extends Datum {
                 setMonat(getMonat() + 1);
             }
             // Passen die übriggebliebenen Tage in den aktuellen Monat
-            if (ueberhang < gueltigeMonatslaengen[getMonat()]) {
+            if (ueberhang <= gueltigeMonatslaengen[getMonat()]) {
                 // Wen ja ist der verbleibende Überhang der Monatstag
                 setTag(ueberhang);
                 // Und danach ist kein Überhang merh da
