@@ -5,10 +5,18 @@ import de.laurenzgrote.bwinf35.sprichwort.datum.JulianischesDatum;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Kath./Ev. Ostern und Orth. Weihnachten finden am folgendem Datum gleichzeitig statt: " +
-                wannKatholischeOsternOrthodoxeWeihnacht());
-        System.out.println("Kath./Ev. Weihnachten und Orth. Ostern finden am folgendem Datum gleichzeitig statt: " +
-                wannKatholischeWeihnachtOrthodoxeOstern());
+        long l1 = System.currentTimeMillis();
+        String a1 = wannKatholischeOsternOrthodoxeWeihnacht();
+        l1 = System.currentTimeMillis() - l1;
+
+        long l2 = System.currentTimeMillis();
+        String a2 = wannKatholischeWeihnachtOrthodoxeOstern();
+        l2 = System.currentTimeMillis() - l2;
+
+        System.out.printf("Kath./Ev. Ostern und Orth. Weihnachten finden am folgendem Datum gleichzeitig statt: %s. Zur Berechnung habe ich %dms gebraucht. \n",
+                a1, l1);
+        System.out.printf("Kath./Ev. Weihnachten und Orth. Ostern finden am folgendem Datum gleichzeitig statt: %s. Zur Berechnung habe ich %dms gebraucht. ",
+                a2, l2);
     }
 
     private static String wannKatholischeOsternOrthodoxeWeihnacht() {
